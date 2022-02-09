@@ -1,63 +1,61 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@800&family=Lovers+Quarrel&display=swap" rel="stylesheet"><head>
-  <meta charset="utf-8">
-  <title>Tushar</title>
-  <link rel="stylesheet" href="CSS/style!.css">
-  <link rel="icon" href="favicon.ico">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
-
 <body>
-  <nav  class="content-table">
-    <a class="content-table-text" href="#hel">Hello</a>
-    <a class="content-table-text" href="#ski">My Skills</a>
-    <a class="content-table-text" href="#tch">Get in touch</a>
-  </nav>
-  <div class="Top-container">
-    <img class="Top-cloud"src="CSS - My Site Images\cloud.png" alt="Cloud-img">
-    <h1 class="Tushar">I m Tushar</h1>
-    <h2 class="Below-Tushar">I m a programmer</h2>
-    <img class="bottom-cloud"src="CSS - My Site Images\cloud.png" alt="Cloud-img">
-    <img src="CSS - My Site Images\mountain.png" alt="mountain-img">
-  </div>
-  <div class="middle-container">
-    <div class="profile">
-      <img src="" alt="">
-      <h2 id="hel">Hello.</h2>
-      <p>I m Tushar karade i currently pursuing computer science degree and working on grabbing skills on web devlopment</p>
-      <img width="250px"src="https://media.giphy.com/media/O8CSTLyHv4HgJwyRLn/giphy.gif" alt="Good boy">
-    </div>
-    <hr>
-    <div class="skills">
-      <h2 id="ski">My Skills.</h2>
-      <div class="skill-row">
-        <img width="250px" class="Web-devlopment" src="https://media.giphy.com/media/v8M5zeZJeZlEcXhtaS/giphy.gif" alt="Web-image">
-        <h3>Web Devloper</h3>
-        <p>I m new in web devlopment not so much experience but will conquer a lot in coming time</p>
-      </div>
-      <div class="skill-row">
-        <img width="250px"class="Android-devlopment" src="https://media.giphy.com/media/98uBZTzlXMhkk/giphy.gif" alt="Android-image">
-        <h3>Android devlopment</h3>
-        <p>Not yet started in android devlopment</p>
-      </div>
-    </div>
-    <hr>
-  </div>
-    <div class="contact-me">
-      <h2 id="tch">Get In Touch</h2>
-      <h3>If you love web devlopment and android devlopment as much as i do. Go through below links</h3>
-      <p>Below are the links have a look</p>
-    </div>
-  <div class="bottom-container">
-    <a class="footer-link" href="https://www.linkedin.com/"><img class="footer-link-image" src="CSS - My Site Images/010-linkedin.png" alt=""></a>
-    <a class="footer-link" href="https://twitter.com/"><img class="footer-link-image" src="CSS - My Site Images/twitter-sign.png" alt=""></a>
-    <a class="footer-link" href="https://www.appbrewery.co/"><img class="footer-link-image" src="CSS - My Site Images/www.png" alt=""></a>
-    <a class="btn" href="mailto:name@email.com"><img class="footer-link-image" src="CSS - My Site Images/gmail.png" alt=""></a>
-    <p>© 2021 Tushar karade.</p>
-  </div>
+
+   <h1>Freaky Firebase Realtime Database Example</h1>
+	
+	<pre id='object'></pre>
+
+  <!-- firebase config -->
+ <script>
+  
+require('dotenv').config({ path: './test.env' });
+	  
+	  
+	  
+	  // Initialize Firebase
+	  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyB-JVOhbRXzkk3XkMLeHpXSwVirK6tJSsU" ,
+  authDomain: "aquaponics-5a5a7.firebaseapp.com",
+  databaseURL: "https://aquaponics-5a5a7-default-rtdb.firebaseio.com",
+  projectId: "aquaponics-5a5a7",
+  storageBucket: "aquaponics-5a5a7.appspot.com",
+  messagingSenderId: "275682898912",
+  appId: "1:275682898912:web:31073ba85ccff15ef8f185",
+  measurementId: "G-JDW35B8V2K"
+};
+	  
+	   /* Data Event Listeners Start */
+	  
+	  //Data Object Change Listener
+const preObject = document.getElementById('object');
+const dbRefObject = firebase.database().ref().child('object');
+
+dbRefObject.on('value', snap => {
+
+	console.log(snap.val());	
+	preObject.innerText = JSON.stringify(snap.val(), null, 3);
+
+}, function(error) {
+  // The fetch failed.
+  console.error(error);
+});
+
+	  
+	   /* Stop */
+	  
+	  
+
+	</script>
+
 
 </body>
-
 </html>
